@@ -1,0 +1,139 @@
+body{
+  box-sizing: border-box;
+  background: #eaeaea;
+}
+.app-container {
+  width: 50%;
+  margin: auto;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin tracker ($color-accent, $gradient) {
+  $color-check--complete: #66dc26;
+  border-radius: 30px;
+  background: #2f2f2f;
+  width: 640px;;
+  position: relative;
+  font-family: "Arial", sans-serif;
+  
+  &__heading {
+    border-radius: 30px 30px 0 0;
+    background: #444;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 2.5em;
+    color: #fff;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__bar-incomplete {
+    fill: #222;
+  }
+  &__bar-complete {
+    fill: $gradient;
+  }
+  
+  &__completion {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 45px solid transparent;
+    border-left: 45px solid transparent;
+    border-bottom: 45px solid #222222;
+    border-right: 45px solid #222222;
+    border-radius: 0 0 30px 0;
+  }
+  &__shadow {
+    box-shadow: 0 15px 12px -15px rgba(0, 0, 0, 0.5);
+    background: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height:127px;
+    width: 127px;
+    transform: translateY(-110px) translateX(19px) rotate(-45deg);
+  }
+  &__check {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0 10px 20px 0;
+    color: #4a4a4a;
+    font-size: 2.3em;
+    filter: url(#inset-shadow);
+    &--completed {
+      font-size: 4em;
+      color: $color-check--complete;
+    }
+  }
+  
+  &__current {
+    color: $color-accent;
+    font-size: 72px;
+    line-height: 1em;
+    align-self: flex-end;
+    flex-basis: 50%;
+  }
+}
+
+.sleep-tracker {
+  $color-accent: #fb9d00;
+  @include tracker($color-accent, url(#GradientColor));
+  &__stop-icon {
+    color: $color-accent;
+    margin-right: 10px;
+  }
+}
+
+.daily-steps-tracker {
+  $color-accent: #1ca8ef;
+  @include tracker($color-accent, url(#GradientColor));
+  &__steps-icon {
+    color: $color-accent;
+    transform: rotate(-90deg);
+    margin-right: 10px;
+  }
+  &__metrics {
+    display: flex;
+    height: 100%;
+    padding: 10px 0 25px 20px;
+  }
+  
+  &__goal {
+    color: #fff;
+    font-size: 44px;
+    flex-basis: 55%;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+  &__goal-heading {
+    font-size: 18px;
+    padding-bottom: .25em;
+  }
+}
+
+.hr-monitor {
+  &__circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 10px;
+    stroke-dashoffset: -25.5px;
+    stroke-dasharray: 200px 51px;
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+  }
+  &__point {
+    fill: cornflowerblue;
+  }
+}
