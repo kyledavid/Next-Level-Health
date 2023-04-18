@@ -88,15 +88,6 @@ body{
   }
 }
 
-.sleep-tracker {
-  $color-accent: #fb9d00;
-  @include tracker($color-accent, url(#GradientColor));
-  &__stop-icon {
-    color: $color-accent;
-    margin-right: 10px;
-  }
-}
-
 .daily-steps-tracker {
   $color-accent: #1ca8ef;
   @include tracker($color-accent, url(#GradientColor));
@@ -122,6 +113,36 @@ body{
   &__goal-heading {
     font-size: 18px;
     padding-bottom: .25em;
+  }
+}
+
+.sleep-tracker {
+  $color-accent: #fb9d00;
+  @include tracker($color-accent, url(#GradientColor));
+  &__stop-icon {
+    color: $color-accent;
+    margin-right: 10px;
+  }
+  &__metrics {
+    display: flex;
+    height: 100%;
+    padding: 10px 0 25px 20px;
+  }
+  &__length {
+    color: $color-accent;
+    line-height: 1em;
+    align-self: flex-end;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__hours {
+    font-size: 72px;
+    line-height: 1em;
+  }
+  &__clock {
+    font-size: 24px;
+    line-height: 1.4em;
   }
 }
 
