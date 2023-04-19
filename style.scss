@@ -91,7 +91,7 @@ body{
 
 .daily-steps-tracker {
   $color-accent: #1ca8ef;
-  @include tracker($color-accent, url(#GradientColor));
+  @include tracker($color-accent, url(#GradientColor2));
   &__steps-icon {
     color: $color-accent;
     transform: rotate(-90deg);
